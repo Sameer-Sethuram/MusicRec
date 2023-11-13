@@ -19,6 +19,7 @@ def load_users(file):
         bands.sort()
         users[user] = bands
     return users
+file_verf()
 print(load_users("musicrecplus.txt"))
 
 def get_pref(username, users):
