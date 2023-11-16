@@ -74,7 +74,7 @@ def get_pref(username, users):
         
         users[username] = prefs
         print("Your preferences have been saved!")
-        get_menu()
+        print(get_menu())
     return users
 
 # Assuming load_users returns the dictionary of users
