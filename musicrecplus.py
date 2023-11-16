@@ -22,13 +22,10 @@ def load_users(file):
             users[user] = bands
     return users
 
-
 def get_pref(username, users):
-    #Elian F
     if username in users:
         pref = users[username]
         print(f"Welcome back to musicrecplus, {username}!")
-        get_menu()
     else:
         prefs = []
         print(f"Welcome to musicrecplus, {username}!")
@@ -41,9 +38,14 @@ def get_pref(username, users):
 
         users[username] = prefs
         print("Your preferences have been saved!")
-        get_menu()
+
     return users
-get_pref(username=load_users(pref_file), users=load_users(pref_file))
+
+# Assuming load_users returns the dictionary of users
+users = load_users(pref_file)
+username = input("Enter your username: ")
+updated_users = get_pref(username, users)
+#TESTING CODE
 
 def get_rec(current_user, prefs, users):
     #Elian F
