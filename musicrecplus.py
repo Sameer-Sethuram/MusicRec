@@ -34,7 +34,7 @@ def get_pref(username, users):
         while new_pref != " ":
             prefs.append(new_pref.strip().title())
             print("Please Enter Another Artist/Bands: ")
-
+load_users(pref_file)
         
 
 def get_rec(current_user, prefs,users):
