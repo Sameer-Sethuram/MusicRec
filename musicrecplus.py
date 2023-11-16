@@ -11,6 +11,7 @@ pref_file = 'musicrecplus.txt'
 
     
 def load_users(file):
+    #Elian F
     file = open('musicrecplus.txt', 'r+')
     users = {}
 
@@ -27,10 +28,10 @@ def get_pref(username, users):
         print(f"Welcome back to musicrecplus {username}!")
         get_menu(current_user=username, pref=pref, users=users)
     else:
-        prefs =[]
+        prefs = []
         print(f"Welcome to musicrecplus {username}!")
         new_pref = input("Please Enter Your Artist/Bands: ")
-        while new_pref != '':
+        while new_pref != " ":
             prefs.append(new_pref.strip().title())
             print("Please Enter Another Artist/Bands: ")
 
@@ -48,9 +49,7 @@ def save_pref(username, prefs, users, file):
 
 
 def get_menu():
-    users = load_users(pref_file)
-    current_user = input("Please Enter Your Username: ")
-    prefs = get_pref(current_user, users)
+
     choice = input("""
     Enter a letter to choose an option: 
     e - Enter preferences
@@ -61,6 +60,9 @@ def get_menu():
     q - Save and quit
     >>""")
     if choice == 'r':
+        users = load_users(pref_file)
+        current_user = input("Please Enter Your Username: ")
+        prefs = get_pref(current_user, users)
         get_rec(current_user, prefs, users)
     elif choice == 'p':
         pass
