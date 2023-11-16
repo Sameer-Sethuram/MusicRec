@@ -22,18 +22,22 @@ def load_users(file):
         users[user] = bands
     return users
 def get_pref(username, users):
-    new_pref = ''
     if username in users:
         pref = users[username]
-        print(f"Welcome back to musicrecplus {username}!")
+        print(f"Welcome back to musicrecplus, {username}!")
         get_menu(current_user=username, pref=pref, users=users)
     else:
         prefs = []
-        print(f"Welcome to musicrecplus {username}!")
-        new_pref = input("Please Enter Your Artist/Bands: ")
-        while new_pref != " ":
+        print(f"Welcome to musicrecplus, {username}!")
+
+        while True:
+            new_pref = input("Please Enter Your Artist/Band (or press Enter to finish): ")
+            if not new_pref:
+                break
             prefs.append(new_pref.strip().title())
-            print("Please Enter Another Artist/Bands: ")
+
+        users[username] = prefs
+    return users
 load_users(pref_file)
         
 
