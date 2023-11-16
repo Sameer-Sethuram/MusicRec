@@ -61,6 +61,7 @@ def get_pref(username, users):
     if username in users:
         pref = users[username]
         print(f"Welcome back to musicrecplus, {username}!")
+        get_menu()
     else:
         prefs = []
         print(f"Welcome to musicrecplus, {username}!")
@@ -70,9 +71,10 @@ def get_pref(username, users):
             if not new_pref:
                 break
             prefs.append(new_pref.strip().title())
-
+        
         users[username] = prefs
         print("Your preferences have been saved!")
+        get_menu()
     return users
 
 # Assuming load_users returns the dictionary of users
