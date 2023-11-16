@@ -43,7 +43,7 @@ def get_pref(username, users):
         print("Your preferences have been saved!")
         get_menu()
     return users
-get_pref()
+get_pref(username=load_users(pref_file), users=load_users(pref_file))
 
 def get_rec(current_user, prefs, users):
     #Elian F
