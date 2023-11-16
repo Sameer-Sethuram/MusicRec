@@ -12,39 +12,7 @@ def file_verf():
             print('New file named musicrecplus.txt created!')
 
 
-def get_menu():
-    load_users(pref_file)
-    while True:
-        choice = input("""
-        Enter a letter to choose an option: 
-        e - Enter preferences
-        r - Get recommendations
-        p - Show most popular artists
-        h - How popular is the most popular 
-        m - Which user has the most likes
-        q - Save and quit
-        >>""")
-        
-        if choice == 'e':
-            username = input("Enter your username: ")
-            users = load_users(pref_file)
-            get_pref(username, users)
-        elif choice == 'r':
-            # Assuming you pass current_user, prefs, and users to get recommendations
-            
-            get_rec(current_user, prefs, users)
-        elif choice == 'p':
-            # Show most popular artists 
-            pass
-        elif choice == 'h':
-            # How popular 
-            pass
-        elif choice == 'm':
-            # Which user has the most likes 
-            pass
-        elif choice == 'q':
-            save_pref(username, prefs, users, pref_file)
-            break
+
 
 def load_users(file):
     #Elian F   
@@ -103,3 +71,37 @@ def save_pref(username, prefs, users, file):
 
 def drop(l1, l2):
     pass  # Define how to drop users
+
+def get_menu():
+    load_users(pref_file)
+    while True:
+        choice = input("""
+        Enter a letter to choose an option: 
+        e - Enter preferences
+        r - Get recommendations
+        p - Show most popular artists
+        h - How popular is the most popular 
+        m - Which user has the most likes
+        q - Save and quit
+        >>""")
+        
+        if choice == 'e':
+            username = input("Enter your username: ")
+            users = load_users(pref_file)
+            get_pref(username, users)
+        elif choice == 'r':
+            # Assuming you pass current_user, prefs, and users to get recommendations
+            
+            get_rec(current_user, prefs, users)
+        elif choice == 'p':
+            # Show most popular artists 
+            pass
+        elif choice == 'h':
+            # How popular 
+            pass
+        elif choice == 'm':
+            # Which user has the most likes 
+            pass
+        elif choice == 'q':
+            save_pref(username, prefs, users, pref_file)
+            break
