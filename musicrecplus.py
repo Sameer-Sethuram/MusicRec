@@ -29,7 +29,6 @@ def get_pref(username, users):
     if username in users:
         pref = users[username]
         print(f"Welcome back to musicrecplus, {username}!")
-        get_menu()
     else:
         prefs = []
         print(f"Welcome to musicrecplus, {username}!")
@@ -39,24 +38,20 @@ def get_pref(username, users):
             if not new_pref:
                 break
             prefs.append(new_pref.strip().title())
-        
+
         users[username] = prefs
         print("Your preferences have been saved!")
-        get_menu()
+
     return users
 
-# Assuming load_users returns the dictionary of users
+# Example usage
 users = load_users(pref_file)
 username = input("Enter your username: ")
 updated_users = get_pref(username, users)
-#TESTING CODE
 
+# Testing code
 def get_rec(current_user, prefs, users):
-    #Elian F
     best_user = get_best_users(current_user, prefs, users)
-    print(users[best_user])
-    print(prefs)
-    print(drop(users[best_user]))
     recommendations = drop(prefs, users[best_user])
     return recommendations
 
@@ -73,14 +68,13 @@ def drop(l1, l2):
     pass  # Define how to drop users
 
 def get_menu():
-    load_users(pref_file)
     while True:
         choice = input("""
         Enter a letter to choose an option: 
         e - Enter preferences
         r - Get recommendations
         p - Show most popular artists
-        h - How popular is the most popular 
+        h - How popular
         m - Which user has the most likes
         q - Save and quit
         >>""")
@@ -88,10 +82,13 @@ def get_menu():
         if choice == 'e':
             username = input("Enter your username: ")
             users = load_users(pref_file)
-            get_pref(username, users)
+            updated_users = get_pref(username, users)
+            save_pref(username, updated_users[username], updated_users, pref_file)
         elif choice == 'r':
             # Assuming you pass current_user, prefs, and users to get recommendations
-            
+            current_user = input("Enter your username: ")
+            prefs = load_users(pref_file)[current_user]
+            users = load_users(pref_file)
             get_rec(current_user, prefs, users)
         elif choice == 'p':
             # Show most popular artists 
@@ -103,5 +100,7 @@ def get_menu():
             # Which user has the most likes 
             pass
         elif choice == 'q':
-            save_pref(username, prefs, users, pref_file)
             break
+
+# Call the menu
+get_menu()
