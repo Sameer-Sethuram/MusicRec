@@ -41,12 +41,6 @@ def get_pref(username, users):
 
     return users
 
-# Example usage
-users = load_users(pref_file)
-username = input("Enter your username: ")
-updated_users = get_pref(username, users)
-
-# Testing code
 def get_rec(current_user, prefs, users):
     best_user = get_best_users(current_user, prefs, users)
     recommendations = drop(prefs, users[best_user])
