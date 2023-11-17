@@ -43,6 +43,7 @@ def get_pref(username, users):
     return users
 
 def get_rec(current_user, prefs, users):
+    #Elian F
     best_user = get_best_users(current_user, prefs, users)
     recommendations = drop(prefs, users[best_user])
     return recommendations
