@@ -23,6 +23,8 @@ def load_users(file):
 
 def get_pref(username, users):
     #Elian F
+    if '$' in username:
+        print("Your preferences have been privated!")
     if username in users:
         pref = users[username]
         print(f"Welcome back to musicrecplus, {username}!")
@@ -38,7 +40,6 @@ def get_pref(username, users):
 
         users[username] = prefs
         print("Your preferences have been saved!")
-
     return users
 
 def get_rec(current_user, prefs, users):
