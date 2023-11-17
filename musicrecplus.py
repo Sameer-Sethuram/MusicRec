@@ -1,5 +1,4 @@
 import os
-import os
 
 pref_file = 'musicrecplus.txt'
 
@@ -32,7 +31,7 @@ def get_pref(username, users):
         print(f"Welcome to musicrecplus, {username}!")
 
         while True:
-            new_pref = input("Please Enter Your Artist/Band (or press Enter to finish): ")
+            new_pref = input("Please Enter Your Artist/Band (press enter to finish): ")
             if not new_pref:
                 break
             prefs.append(new_pref.strip().title())
