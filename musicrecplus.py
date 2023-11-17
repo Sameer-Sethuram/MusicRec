@@ -11,9 +11,6 @@ def file_verf():
         with open("musicrecplus.txt", "a+") as f:
             print('New file named musicrecplus.txt created!')
 
-
-
-
 def load_users(file):
     #Elian F   
     users = {}
@@ -26,6 +23,7 @@ def load_users(file):
     return users
 
 def get_pref(username, users):
+    #Elian F
     if username in users:
         pref = users[username]
         print(f"Welcome back to musicrecplus, {username}!")
@@ -59,6 +57,7 @@ def get_best_users(current_user, prefs, users):
     pass  # Define how to match best users
 
 def save_pref(username, prefs, users, file):
+    #Elian F
     with open(file, 'w') as f:
         for user, bands in users.items():
             bands_str = ",".join(bands)
@@ -68,6 +67,7 @@ def drop(l1, l2):
     pass  # Define how to drop users
 
 def get_menu():
+    #Elian F
     while True:
         choice = input("""
         Enter a letter to choose an option: 
@@ -100,7 +100,6 @@ def get_menu():
             # Which user has the most likes 
             pass
         elif choice == 'q':
-            break
-
+            pass
 # Call the menu
 get_menu()
