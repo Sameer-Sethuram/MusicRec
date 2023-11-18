@@ -1,4 +1,4 @@
-import os
+import os.path
 
 pref_file = 'musicrecplus.txt'
 
@@ -49,7 +49,19 @@ def get_rec(current_user, prefs, users):
     return recommendations
 
 def get_best_users(current_user, prefs, users):
-    pass  # Define how to match best users
+    # Sameer Sethuram
+    memo = {}
+    for user in users:
+        if user[-1] == '$':
+            continue
+        for artists in users[user]:
+            if artists in memo:
+                memo[artists] += 1
+            else:
+                memo[artists] = 1
+    newDict = list(sorted(memo.items(), key = lambda x: x[1]))
+    return list[:3]
+    
 
 def save_pref(username, prefs, users, file):
     #Elian F
