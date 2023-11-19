@@ -72,12 +72,35 @@ def get_preference(username, users):
         print("Your preferences have been saved!")
     return users
 
-def get_recommendations(current_user, prefs, users):
-    '''This function returns recommendations by using similar users taste'''
-    #Elian F
-    best_user = get_recommendations(current_user, prefs, users)
-    recommendations = drop(prefs, users[best_user])
+def get_recommendations(database):
+    ''' Gets recommendations for the user '''
+    #Sameer Sethuram
+    best_user = get_best_users(database)
+    L1 = database[username]
+    L2 = database[best_user]
+    recommendations = list(filter(lambda x: x not in L1 , L2))
+    if recommendations== []:
+        return "No recommendatios available at this time."
     return recommendations
+
+def get_best_users(database):
+    ''' Gets the user that is most similar to the current user's taste '''
+    # Sameer Sethuram
+    similarity = [0, '']
+
+    for member in database:
+        temp = 0
+        if member[-1] == '$' or member == username:
+            continue
+        if database[member] == database[username]:
+            continue
+        for pref in database[member]:
+            if pref in database[username]:
+                temp += 1
+        if temp > similarity[0]:
+            similarity = [temp, member] #list(filter(lambda x: x not in users[username] , users[member])]
+
+    return similarity[1]
 
 def get_mostpopularartist(preferences, users):
     '''This function prints the top 3 artists liked by the most users'''
