@@ -15,7 +15,7 @@ def file_verf():
 def load_users(file):
     #Elian F   
     users = {}
-    with open(file, 'r+') as file:
+    with open(file, 'a+') as file:
         for line in file:
             user, band = line.strip().split(":")
             bands = band.split(",")
@@ -82,7 +82,7 @@ def get_recommendations(current_user, prefs, users):
 def get_mostpopularartist(preferences, users):
     '''This function prints the top 3 artists liked by the most users'''
     #Luke Morella
-    database = open('musicrecplus.txt', 'r+')
+    database = open('musicrecplus.txt', 'a+')
     artists = {}
     if type(preferences) != list:
         x = preferences.split(',')
@@ -126,7 +126,7 @@ def get_mostpopularartist(preferences, users):
 def get_howpopular(preferences, name):
     '''This function returns how popular the most popular artist is (only number)'''
     #Luke Morella
-    database = open('musicrecplus.txt', 'r+')
+    database = open('musicrecplus.txt', 'a+')
     artists = {}
     for i in preferences:
         i = i.strip()
@@ -158,7 +158,7 @@ def get_mostlikes(name, number):
     '''This function returns the print of the full name(s) of the user(s) who
 like(s) the most artists'''
     #Luke Morella
-    database = open('musicrecplus.txt', 'r+')
+    database = open('musicrecplus.txt', 'a+')
     highest_likes = (name, number)
     for ln in database:
         x = ln.split(':')
